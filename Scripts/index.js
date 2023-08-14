@@ -89,7 +89,7 @@ function executeSearch(args) {
         else {
             const nextCaller = new Caller("search", args);
 
-            getFailedSearch(userInput, germanDictionary);
+            getFailedSearch(userInput, germanDictionary, isGerman);
             const listedWords = document.querySelectorAll("li");
             listedWords.forEach((word) => word.addEventListener("click", () => executeDetails(nextCaller, word.innerText)))
             backEventHandle(caller);
@@ -102,7 +102,7 @@ function executeSearch(args) {
         else {
             const nextCaller = new Caller("search", args);
 
-            getFailedSearch(userInput, spanishDictionary);
+            getFailedSearch(userInput, spanishDictionary, isGerman);
             const listedWords = document.querySelectorAll("li");
             listedWords.forEach((word) => word.addEventListener("click", () => executeSearch([nextCaller, word.innerText, false])));
             backEventHandle(caller);

@@ -60,11 +60,13 @@ export function getWordDetails(word, wordData) {
     return html;
 }
 
-export function getFailedSearch(userInput, dictionary) {
+export function getFailedSearch(userInput, dictionary, language) {
     // Displaying data
     body.innerHTML = structure.failedSearch;
     const container = document.querySelector("#failed-search");
-    container.innerHTML += `<h1>Lo sentimos, la palabra no fue encontrada. Quisiste decir: </h1>`;
+    const germanMessage = `Entschuldigung! Das Wort wurde leider nicht gefunden. Meinen Sie:`;
+    const spanishMessage = `Lo sentimos, la palabra no fue encontrada. Quiso decir:`;
+    container.innerHTML += language ? `<h1>${germanMessage}</h1>` : `<h1>${spanishMessage}</h1>`;
     container.innerHTML += getSuggestions(userInput, dictionary, 3);
 }
 
