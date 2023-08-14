@@ -34,19 +34,19 @@ export function getWordDetails(word, wordData) {
         let innerHtml =
             `
      <div class="definition-container">
-         <p><strong>Meaning:</strong>${data.description}</p>
+         <p><strong>Bedeutung:</strong>${data.description}</p>
      `;
 
-        if (data.synonyms.length != 0) innerHtml += `<p><strong>Synonyms:</strong>${data.synonyms}</p>`
+        if (data.synonyms.length != 0) innerHtml += `<p><strong>Synonyme:</strong>${data.synonyms}</p>`
 
         if (data.sWords.length != 0) {
             innerHtml += `
-         <p><strong>Spanish Translation:</strong>${data.sWords}</p>
-         <p><strong>Spanish Meaning:</strong>${data.translation}</p>
+         <p><strong>Equivalente en español:</strong>${data.sWords}</p>
+         <p><strong>Significado en español:</strong>${data.translation}</p>
          `;
         }
         else {
-            innerHtml += `<p><strong>Spanish Meaning:</strong>${data.extra}</p>`
+            innerHtml += `<p><strong>Significado en español:</strong>${data.extra}</p>`
         }
 
         innerHtml +=
