@@ -42,6 +42,8 @@ function executeMain() {
     languageButtons.forEach((btn) => btn.addEventListener("click", () => {
         if (btn.value == "spanisch") searchLanguage = false;
         else searchLanguage = true;
+        searchButton.innerText = searchLanguage ? "suchen" : "buscar";
+        inputText.placeholder = searchLanguage ? "tippen Sie das Wort" : "escriba la palabra";
     }));
 
     inputText.addEventListener("keyup", () => {
