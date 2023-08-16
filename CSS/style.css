@@ -148,9 +148,10 @@ input:hover{
 /* Clickable words */
 
 .word{
-    padding: .4em;
+    padding: .4em 0;
     width: 20%;
     margin: auto;
+    text-align: center;
 }
 
 .word:hover{
