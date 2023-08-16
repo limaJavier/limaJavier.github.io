@@ -29,24 +29,24 @@ export function getHtmlList(dictionary) {
 
 export function getWordDetails(word, wordData) {
     // Displaying data
-    let html = `<h1>${word}</h1>`;
+    let html = `<h1>${word}</h1><div id="definition">`;
     wordData.forEach((data) => {
         let innerHtml =
             `
      <div class="definition-container">
-         <p><strong>Bedeutung:</strong>${data.description}</p>
+         <p><strong>Bedeutung: </strong>${data.description}</p>
      `;
 
-        if (data.synonyms.length != 0) innerHtml += `<p><strong>Synonyme:</strong>${data.synonyms}</p>`
+        if (data.synonyms.length != 0) innerHtml += `<p><strong>Synonyme: </strong>${data.synonyms}</p>`
 
         if (data.sWords.length != 0) {
             innerHtml += `
-         <p><strong>Equivalente en español:</strong>${data.sWords}</p>
-         <p><strong>Significado en español:</strong>${data.translation}</p>
+         <p><strong>Equivalente en español: </strong>${data.sWords}</p>
+         <p><strong>Significado en español: </strong>${data.translation}</p>
          `;
         }
         else {
-            innerHtml += `<p><strong>Significado en español:</strong>${data.extra}</p>`
+            innerHtml += `<p><strong>Significado en español: </strong>${data.extra}</p>`
         }
 
         innerHtml +=
@@ -57,7 +57,7 @@ export function getWordDetails(word, wordData) {
 
         html += innerHtml;
     });
-    return html;
+    return html += `</div>`;
 }
 
 export function getFailedSearch(userInput, dictionary, language) {
@@ -73,13 +73,13 @@ export function getFailedSearch(userInput, dictionary, language) {
 export function getSpanishResults(userInput, dictionary) {
     body.innerHTML = structure.spanishSearch;
     const container = document.querySelector("#spanish-search");
-    container.innerHTML += `
-    <p>${userInput}</p>
-    <ul>`;
+    let html = `<h1>${userInput}</h1><ul>`;
     dictionary[userInput].forEach((gWord) => {
-        container.innerHTML += `<li class="word">${gWord}</li>`;
+        html+= `<li class="word">${gWord}</li>`;
     });
-    container.innerHTML += `</ul>`;
+    html += `</ul>`;
+
+    container.innerHTML += html;
 }
 
 function getSuggestions(userInput, dictionary, maxAmount) {
