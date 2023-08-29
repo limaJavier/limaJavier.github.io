@@ -164,3 +164,8 @@ input:hover{
         width: 10%;
     }
 }
+
+img{
+    border-radius: 2rem;
+    width: 50%;
+}
