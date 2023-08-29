@@ -159,13 +159,18 @@ input:hover{
     font-weight: bolder;
 }
 
+img{
+    display: block;
+    border-radius: 2rem;
+    width: 90%;
+    margin: auto;
+}
+
 @media (min-width: 800px) {
     .word{
         width: 10%;
     }
-}
-
-img{
-    border-radius: 2rem;
-    width: 50%;
+    img{
+        width: 50%;
+    }
 }

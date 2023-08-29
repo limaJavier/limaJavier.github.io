@@ -47,7 +47,7 @@ function executeMain() {
     }));
 
     inputText.addEventListener("keyup", () => {
-        const currentWord = inputText.value;
+        const currentWord = inputText.value.toLowerCase();
         if (currentWord == "") return;
 
         let suggestions;
@@ -61,7 +61,7 @@ function executeMain() {
         });
     });
 
-    inputText.addEventListener("focusout", () => searchButton.value = inputText.value);
+    inputText.addEventListener("focusout", () => searchButton.value = inputText.value.toLowerCase());
     searchButton.addEventListener("click", () => executeSearch([nextCaller, searchButton.value, searchLanguage]));
 }
 
